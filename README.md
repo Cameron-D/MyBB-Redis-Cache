@@ -8,8 +8,8 @@ Why?
 
 I currently use Memcache to cache both the MyBB settings and preparsed versions of each post (To save processing time on
 subsequent page loads of posts) however Memcache does not make it easy to clear items if you do not know the name of the
-item (preparsed posts are stored as hashes) so this was built to offer more control over flushing items (And I've always
-wanted an excuse to try Redis)
+item (preparsed posts are stored as hashes) so this was built to offer more control over flushing items (and I've always
+wanted an excuse to try Redis).
 
 It may also be an idea to disable persistance for the Redis database (Use it purely as a in-memory cache) as MyBB will
 store persistant caches in its database.
