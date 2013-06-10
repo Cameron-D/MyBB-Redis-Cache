@@ -26,19 +26,19 @@ Requirements
 Installation/Configuration
 ----
 
-1. Merge the contents of the repository into your MyBB installation, making sure to overwrite `class_datacache.php`
+1. Merge the contents of the repository into your MyBB installation, making sure to overwrite `class_datacache.php`.
 
-2. Edit `inc/config.php` and add the following
+2. Edit `inc/config.php` and add the following:
 
     ~~~
     $config['redis']['host'] = '127.0.0.1';
     $config['redis']['port'] = '6379';
     ~~~
 
-    Note that the port will default to 6379 if not specified  
+    Note that the port will default to 6379 if not specified.
 
-3. Enable it by setting 
+3. Enable it by setting:
     ~~~
     $config['cache_store'] = 'redis';
     ~~~
-    in `inc/config.php`
+    in `inc/config.php`.
