@@ -21,6 +21,7 @@ Requirements
 
 * A Redis server
 * The [phpredis](https://github.com/nicolasff/phpredis) extension
+* The desire to use code that has not been thoroughly tested
 
 Installation/Configuration
 ----
