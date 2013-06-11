@@ -75,7 +75,7 @@ class redisCacheHandler
 		//Is a password set?
 		if(isset($mybb->config['redis']['auth']))
 		{
-			$redis->auth($mybb->config['redis']['auth']));
+			$redis->auth($mybb->config['redis']['auth']);
 		}
 
 		// Set a unique identifier for all queries in case other forums are using the same server
