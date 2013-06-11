@@ -35,7 +35,10 @@ Installation/Configuration
     $config['redis']['port'] = '6379';
     ~~~
 
-    Note that the port will default to 6379 if not specified.
+    Note that:
+    * The port will default to 6379 if not specified.
+    * The host can be a Unix socket (Must be an absolute path)
+    * A password can be specified with `$config['redis']['auth']`
 
 3. Enable it by setting:
     ~~~

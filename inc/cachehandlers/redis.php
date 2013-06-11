@@ -53,15 +53,34 @@ class redisCacheHandler
 
 		if(!$mybb->config['redis']['host'])
 		{
-			$mybb->config['redis']['host'] = "11211";
+			$mybb->config['redis']['host'] = "127.0.0.1";
+		}
+		
+		if(!$mybb->config['redis']['port'])
+		{
+			$mybb->config['redis']['port'] = "6379";
 		}
 
 		try {
-			$this->redis->connect($mybb->config['redis']['host'], $mybb->config['redis']['port']);
+			//Check if it is a unix socket, although only supports absolute path
+			if(substr($mybb->config['redis']['host'], 0, 1) === "/")
+			{
+				$this->redis->connect($mybb->config['redis']['host']);
+			}
+			else
+			{
+				$this->redis->connect($mybb->config['redis']['host'], $mybb->config['redis']['port']);
+			}
 		} catch (RedisException $e) {
 			$message = "Unable to connect to the redis server configured in inc/config.php. Are you sure it is running?";
 			$error_handler->trigger($message, MYBB_CACHEHANDLER_LOAD_ERROR);
 			die;
+		}
+		
+		//Is a password set?
+		if(isset($mybb->config['redis']['auth']))
+		{
+			$redis->auth($mybb->config['redis']['auth']));
 		}
 
 		// Set a unique identifier for all queries in case other forums are using the same server
