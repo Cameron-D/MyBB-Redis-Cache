@@ -50,12 +50,7 @@ class redisCacheHandler
 			$error_handler->trigger($message, MYBB_CACHEHANDLER_LOAD_ERROR);
 			die;
 		}
-
-		if(!$mybb->config['redis']['host'])
-		{
-			$mybb->config['redis']['host'] = "127.0.0.1";
-		}
-		
+	
 		if(!$mybb->config['redis']['port'])
 		{
 			$mybb->config['redis']['port'] = "6379";
